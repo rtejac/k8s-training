@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: websamplepod
+  labels:
+    app: websample-pod
+spec:
+  containers:
+    - name: webapppod
+      imagePullPolicy: Always
+      image: "rtejac/web_app:v1.0"
+      command: ["python3"]
+      args: ["web_app.py"]
+      ports:
+        - containerPort: 8881

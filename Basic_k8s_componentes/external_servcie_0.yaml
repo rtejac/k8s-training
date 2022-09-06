@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webappservice
+spec:
+  selector:
+    app: mywebapp
+  type:  NodePort #External: Will open a port on the Node by which we can access the service
+  ports:
+    - protocol: TCP
+      port: 8881 #Port that service will listen on
+      targetPort: 8881 #Should match with containerPort in the pod specification
+      nodePort: 30008 #Range for this is 30000 - 32768. If not specefied, Kubernetes will assign a random port in that range

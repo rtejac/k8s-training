@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webappdeploy
+  labels:
+    app: webapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+      - name: webapppod
+        imagePullPolicy: Always
+        image: "rtejac/web_app:v1.0"
+        command: ["python3"]
+        args: ["web_app.py"]
+        ports:
+          - containerPort: 8881

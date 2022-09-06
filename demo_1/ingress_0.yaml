@@ -9,5 +9,5 @@ spec:
        paths:
        - path: /
          backend:
-           serviceName: webappervice #Service name it has to forward to
+           serviceName: webappservice #Service name it has to forward to
            servicePort: 8881 #Service port it has to forward to

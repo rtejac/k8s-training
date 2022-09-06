@@ -14,3 +14,19 @@ Install [Oracle Virtual box on Windows](https://download.virtualbox.org/virtualb
 ### Kubectl
 
 Click here to download [kubectl for windows](https://dl.k8s.io/release/v1.25.0/bin/windows/amd64/kubectl.exe). Run the executable and follow the steps to complete its installation.
+
+
+## After installing all 3 packages
+
+### Run the following
+Start Minikube and check the version. This is expected to take some 4-5 mins based on your internet connection
+```
+minikube start
+minikube version
+```
+Check the pods, deployments running in the cluster. You will see a **service/kubernetes** , don't worry it's a default  one created.
+```
+kubectl get all
+```
+
+## Now for each demo/folder present in this repo, there is a readme file present. Use that to follow along.

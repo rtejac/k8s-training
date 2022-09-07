@@ -22,6 +22,11 @@ helm install chartName mychart
 ```
 This will run the yaml flies in the templates directory with values replaced by values.yaml file
 
+### List down the helm charts availabe
+```
+helm ls
+```
+
 ### Provide values other than values.yaml to override the default values
 ```
 helm install -f mychart/override_values.yaml chartName mychart

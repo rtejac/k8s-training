@@ -100,3 +100,21 @@ Then go to browser and type(only for this example, change the url based on the n
 ```
 http://myapp.com/
 ```
+
+
+### StatefulSet
+Statefulsets will give control ove pods order of deployments and will be used if an application is Stateful.
+
+Stateless application which won't depend on previous state will be deployed using Deployments.
+
+
+```
+kubecl apply -f statefulset.yaml
+```
+After running this, verify the following,
+* Names of the pods created.
+* Order of pods creation.
+* What happens when the number of replicas are
+  * Increased.
+  * Decreased.
+* In which order the pods are getting destroyed when the statefulset is deleted or replicas are decreased.

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.dep.name }}
+  labels:
+    app: {{ .Values.dep.appName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.pod.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.pod.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.pod.name }}
+        imagePullPolicy: {{ .Values.pullPolicy }}
+        image: {{ .Values.image.name }}:{{ .Values.image.tag }}
+        restartPolicy: {{ .Values.restartPolicy }}
+        command: ["python3"]
+        args: ["web_app.py"]
+        ports:
+          - containerPort: {{ .Values.containerPort }}

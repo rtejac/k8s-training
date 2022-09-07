@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+   name: {{ .Values.ingName }}
+spec:
+   rules:
+   - host: hello-world.info
+     http:
+       paths:
+       - path: /
+         backend:
+           serviceName: {{ .Values.service.name }}
+           servicePort: {{ .Values.service.port }}

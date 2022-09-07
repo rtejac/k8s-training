@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 3
+replicaCount: 1
 
 image:
   name: docker.io/rtejac/web_app
@@ -24,7 +24,7 @@ service:
   name: webappservice
   port: 8881
   targetPort: 8881
-  type: NodePort #ClusterIP #
+  type: ClusterIP #
   nodePort: 30008
 
 

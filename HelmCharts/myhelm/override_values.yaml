@@ -1,0 +1,13 @@
+replicaCount: 3
+
+service:
+  type: NodePort
+  nodePort: 30008
+
+dep:
+  name: mywebappdeploy
+  appName: mywebsample-app
+
+pod:
+  name: mywebapppod
+  appName: mywebapp

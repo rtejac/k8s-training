@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websampledeploy
+  labels:
+    app: websample-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+      - name: demowebsample
+        imagePullPolicy: Never
+        image: "dummy_ubuntu_web:v1.0"
+        restartPolicy: Never
+        command: ["python3"]
+        args: ["web_app.py"]
+        ports:
+          - containerPort: 8881
+        volumeMounts:
+          - name: my-conf
+            mountPath: /working/config
+          - name: my-secret
+            mountPath: /working/secret  
+            readOnly: true
+      volumes:
+        - name: my-conf
+          configMap:
+            name: my-config-file
+        - name: my-secret
+          secret:
+            secretName: my-secret-file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: mosquitto
+#   labels:
+#     app: mosquitto
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: mosquitto
+#   template:
+#     metadata:
+#       labels:
+#         app: mosquitto
+#     spec:
+#       containers:
+#         - name: mosquitto
+#           image: eclipse-mosquitto:1.6.2
+#           ports:
+#             - containerPort: 1883
+#           volumeMounts:
+#             - name: mosquitto-conf
+#               mountPath: /mosquitto/config
+#             - name: mosquitto-secret
+#               mountPath: /mosquitto/secret  
+#               readOnly: true
+#       volumes:
+#         - name: mosquitto-conf
+#           configMap:
+#             name: mosquitto-config-file
+#         - name: mosquitto-secret
+#           secret:
+#             secretName: mosquitto-secret-file

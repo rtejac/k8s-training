@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websampledeploy
+  labels:
+    app: websample-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mywebapp
+  template:
+    metadata:
+      labels:
+        app: mywebapp
+    spec:
+      containers:
+      - name: demowebsample
+        imagePullPolicy: Always
+        image: "rtejac/web_app:v1.0"
+        command: ["python3"]
+        args: ["web_app.py"]
+        ports:
+          - containerPort: 8881
+        volumeMounts:
+          - mountPath: "/tmp/data"
+            name: mypd
+
+      volumes:
+        - name: mypd
+          persistentVolumeClaim:
+            claimName: mypvc
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: some-service
+spec:
+  selector:
+    app: mywebapp
+  type:  NodePort #ClusterIP
+  ports:
+    - protocol: TCP
+      port: 8881
+      targetPort: 8881
+      nodePort: 30008 #30000 - ~32000

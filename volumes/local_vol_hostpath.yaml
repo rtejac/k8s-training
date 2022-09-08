@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: adddeploy
+  labels:
+    app: myapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+
+    spec:
+      volumes:
+        - name: mylocalvol
+          hostPath:
+            path: "/var/share"
+      containers:
+      - name: demopod
+        imagePullPolicy: Never
+        image: "rtejac/web_app:v1.0"
+        command: ["python3"]
+        args: ["web_app.py"]
+        ports:
+          - containerPort: 8881
+        volumeMounts:
+          - name: mylocalvol
+            mountPath: "/var/pod"

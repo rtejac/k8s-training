@@ -3,7 +3,7 @@
 
 ## Installing Helm on Windows
 
-  * Goto helm github (repo)[https://github.com/helm/helm/releases]
+  * Goto helm github [repo](https://github.com/helm/helm/releases)
   * Select the Windows amd64 binary.
   * Download the executable.
 

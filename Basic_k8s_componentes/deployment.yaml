@@ -16,14 +16,9 @@ spec:
     spec:
       containers:
       - name: webapppod
-        imagePullPolicy: IfNotPresent
-        image: "rtejac/web_app_advanced:v1.0"
+        imagePullPolicy: Always
+        image: "rtejac/web_app:v1.0"
         command: ["python3"]
         args: ["web_app.py"]
-        resources:
-          requests:
-            cpu: 200m
-          limits:
-            cpu: 500m
         ports:
           - containerPort: 8881

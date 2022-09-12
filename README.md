@@ -8,6 +8,17 @@ Minikube is a single node Kubernetes Cluster which we can use to practice our Ku
 
 Install [Minikube for windows](https://storage.googleapis.com/minikube/releases/latest/minikube-installer.exe). Run the executable and follow the steps to complete its installation.
 
+### Add Minikube location to PATH environmental variable.
+
+* Open System Properties. Click on Advanced tab.
+* Select Environmental Variables on bottom right side.
+* Go to System variabels and check for Path variable.
+* Click on that and click on Edit option.
+* Then in the Edit Environmental variable window, click on the New button paste the minikube location and then click on Ok until you reach till System properties window.
+* And then Click on Ok and the window will be automatically closed.
+
+
+
 ### Minikube need a Virtual environment to run.
 Install [Oracle Virtual box on Windows](https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe). Run the executable and follow the steps to complete its installation.
 

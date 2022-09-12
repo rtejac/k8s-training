@@ -139,3 +139,13 @@ This will enable metrics server in the kube-system namespace. This is responsibl
 
 Note: The metrics_server.yaml is the default yaml file that collects data about CPU and Memory usage. You can also define your own metrics server that monitors parametes mentioned by you.
 
+Things to check,
+* Before running, make sure the Deployment, internal Service, Ingress, HPA are running.
+* Give a request to the myapp.com/finRec?n=20 and,
+  * Check the CPU and memory Utilization.
+  * Check the Replicas at HPA and replicaset info by watching **kubectl get all** command.
+* Give a request to the myapp.com/finRec?n=50 and,
+  * Check the CPU and memory Utilization.
+  * Check the Replicas at HPA and replicaset info by watching **kubectl get all** command.
+  * Here to to heavy increase in the CPU load by single Pod, HPA will schedule more pods in the cluster.
+  

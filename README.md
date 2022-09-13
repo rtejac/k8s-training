@@ -35,6 +35,15 @@ Start Minikube and check the version. This is expected to take some 4-5 mins bas
 minikube start
 minikube version
 ```
+
+
+By default, minikube will start single node Cluster. If you want to start a multinode Cluster, run
+
+```
+minikube start --nodes <desired_number_of_nodes> -p multinode
+```
+
+
 Check the pods, deployments running in the cluster. You will see a **service/kubernetes** , don't worry it's a default  one created.
 ```
 kubectl get all

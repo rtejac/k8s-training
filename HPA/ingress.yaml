@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+   name: webappingress
+spec:
+   rules:
+   - host: myapp.com
+     http:
+       paths:
+       - path: /
+         backend:
+           serviceName: webappservice #Service name it has to forward to
+           servicePort: 8881 #Service port it has to forward to

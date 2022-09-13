@@ -32,7 +32,7 @@ Click here to download [kubectl for windows](https://dl.k8s.io/release/v1.25.0/b
 ### Run the following
 Start Minikube and check the version. This is expected to take some 4-5 mins based on your internet connection
 ```
-minikube start
+minikube start --driver=virtualbox --no-vtx-check
 minikube version
 ```
 

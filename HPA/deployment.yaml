@@ -5,7 +5,7 @@ metadata:
   labels:
     app: webapp-dep
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: mywebapp
@@ -14,12 +14,23 @@ spec:
       labels:
         app: mywebapp
     spec:
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: nodeid
+      #           operator: In
+      #           values:
+      #           - "3"
       containers:
       - name: webapppod
         imagePullPolicy: IfNotPresent
         image: "rtejac/web_app_advanced:v1.0"
         command: ["python3"]
         args: ["web_app.py"]
+      
+            
         resources:
           requests:
             cpu: 200m

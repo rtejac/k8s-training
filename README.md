@@ -37,16 +37,28 @@ minikube version
 ```
 
 
-By default, minikube will start single node Cluster. If you want to start a multinode Cluster, run
-
+To stop any cluster, run
 ```
-minikube start --nodes <desired_number_of_nodes> -p multinode
+minikube stop
 ```
 
+To permanently delete the cluster, run
+```
+minikube delete
+```
 
 Check the pods, deployments running in the cluster. You will see a **service/kubernetes** , don't worry it's a default  one created.
 ```
 kubectl get all
+```
+
+
+## Multi node minikube Cluster setup (WIP)
+
+By default, minikube will start single node Cluster. If you want to start a multinode Cluster, run
+
+```
+minikube start --nodes <desired_number_of_nodes> --driver=virtualbox --no-vtx-check
 ```
 
 ## Now for each demo/folder present in this repo, there is a readme file present. Use that to follow along.

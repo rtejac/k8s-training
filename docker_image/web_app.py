@@ -86,6 +86,7 @@ if __name__ == "__main__":
         (r"/fib", fiboHandler),
         (r"/fibRec", fiboRecHandler),
         (r"/fact", factHandler),
+        (r"/factRec", factRecHandler),
     ])
 
     app.listen(8881)

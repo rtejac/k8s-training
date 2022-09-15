@@ -43,7 +43,7 @@ Things to check,
 * Give a request to the myapp.com/fibRec?n=30 and,
   * Check the CPU and memory Utilization.
   * Check the Replicas at HPA and replicaset info by watching **kubectl get all** command.
-* Give a request to the myapp.com/fibRec?n=30 and,
+* Give a request to the myapp.com/fibRec?n=45 and,
   * Check the CPU and memory Utilization.
   * Check the Replicas at HPA and replicaset info by watching **kubectl get all** command.
   * Here due to heavy increase in the CPU load by single Pod, HPA will schedule more pods in the cluster.
